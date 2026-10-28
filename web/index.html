@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f5" />
+    <meta
+      name="description"
+      content="Булев поиск по MS MARCO с просмотром исходного текста документов."
+    />
+    <title>MARCO — поиск по корпусу</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/app.css" />
+    <script src="/text.js" defer></script>
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="MARCO, на главную">
+          <span class="brand-icon" aria-hidden="true"
+            ><svg viewBox="0 0 24 24"><path d="M5 18V6l7 8 7-8v12" /></svg
+          ></span>
+          <span
+            >MARCO<span class="brand-divider">/</span
+            ><span class="brand-caption">поиск по корпусу</span></span
+          >
+        </a>
+        <span class="connection"
+          ><span class="status-dot"></span
+          ><span id="connection-text">Подключение</span></span
+        >
+      </header>
+
+      <main>
+        <section class="search-section" aria-labelledby="page-title">
+          <div class="eyebrow">MS MARCO · DOCUMENTS V2</div>
+          <h1 id="page-title">
+            Слова складываются<br />в <span>результат.</span>
+          </h1>
+          <p class="intro">
+            Находите документы по точным условиям. Читайте исходный текст здесь
+            же.
+          </p>
+          <form id="search-form" autocomplete="off">
+            <div class="search-box">
+              <svg
+                class="search-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <circle cx="10.5" cy="10.5" r="6.5" />
+                <path d="m16 16 4.5 4.5" />
+              </svg>
+              <label class="sr-only" for="query">Поисковый запрос</label>
+              <input
+                id="query"
+                name="query"
+                placeholder="machine AND learning"
+                spellcheck="false"
+                maxlength="16000"
+                required
+              />
+              <kbd
+                class="search-shortcut"
+                title="Нажмите /, чтобы перейти к поиску"
+                >/</kbd
+              >
+              <button class="search-button" id="search-button" type="submit">
+                Найти <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <div class="search-options">
+              <label class="option index-option"
+                ><span>Индекс</span
+                ><select id="index" aria-label="Индекс" disabled>
+                  <option>Загрузка…</option>
+                </select></label
+              >
+              <label class="option"
+                ><span>На странице</span
+                ><select id="limit" aria-label="Результатов на странице">
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                  <option>100</option>
+                </select></label
+              >
+              <label class="option"
+                ><span>Переходы</span
+                ><select id="mode" aria-label="Алгоритм advance">
+                  <option value="binary">Экспоненциальный + бинарный</option>
+                  <option value="sequential">Последовательный</option>
+                </select></label
+              >
+            </div>
+          </form>
+          <div class="examples">
+            <span>Попробуйте</span
+            ><button type="button" data-query="machine AND learning">
+              machine AND learning</button
+            ><button type="button" data-query="title:python">
+              title:python</button
+            ><button
+              type="button"
+              data-query="machine ANDNOT (python OR model)"
+            >
+              machine ANDNOT (python OR model)
+            </button>
+          </div>
+          <details class="syntax">
+            <summary>
+              Как составить запрос <span aria-hidden="true">+</span>
+            </summary>
+            <div>
+              <p>
+                <code>a AND b</code> — оба слова · <code>a OR b</code> — хотя бы
+                одно · <code>a ANDNOT b</code> — первое без второго.
+              </p>
+              <p>
+                Скобки задают порядок. <code>title:</code>,
+                <code>headings:</code> и <code>body:</code> ограничивают поле.
+                Операторы пишутся заглавными буквами; ищутся целые слова без
+                изменения окончаний.
+              </p>
+            </div>
+          </details>
+        </section>
+
+        <div id="error" class="error-banner" role="alert" hidden></div>
+        <section id="welcome" class="welcome" aria-label="Сведения о корпусе">
+          <div class="welcome-copy">
+            <span class="small-label">ВАШ ПОИСКОВЫЙ СТОЛ</span>
+            <h2>От запроса —<br />к полному документу.</h2>
+            <p>
+              Заголовок, подзаголовки и основной текст из сохранённого корпуса.
+              Без переходов на изменившиеся страницы.
+            </p>
+          </div>
+          <div class="corpus-stats">
+            <div>
+              <strong id="document-count">—</strong
+              ><span>документов в индексе</span>
+            </div>
+            <div>
+              <strong id="term-count">—</strong><span>уникальных слов</span>
+            </div>
+            <span class="corpus-tag"
+              ><span class="status-dot"></span>Булев поиск · точное
+              совпадение</span
+            >
+          </div>
+        </section>
+
+        <section
+          id="workspace"
+          class="workspace"
+          aria-label="Результаты поиска"
+          hidden
+        >
+          <div class="results-pane">
+            <div class="results-heading">
+              <h2>Результаты <span id="result-count"></span></h2>
+              <span id="elapsed" class="elapsed"></span>
+            </div>
+            <p id="results-note" class="results-note"></p>
+            <div id="results" aria-live="polite" aria-busy="false"></div>
+            <div id="pagination" class="pagination" hidden>
+              <button id="previous" type="button">← Назад</button
+              ><span id="page-number">Страница 1</span
+              ><button id="next" type="button">Далее →</button>
+            </div>
+          </div>
+          <article
+            id="document"
+            class="document-pane"
+            aria-label="Текст документа"
+            aria-busy="false"
+          >
+            <div class="document-placeholder">
+              <span class="placeholder-icon" aria-hidden="true">↗</span>
+              <h2>Выберите документ</h2>
+              <p>Здесь появится его полный текст.</p>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <footer>
+        <span
+          >MARCO<span class="footer-dot">·</span>Текст из корпуса, по которому
+          выполнен поиск</span
+        ><span>AND / OR / ANDNOT</span>
+      </footer>
+    </div>
+  </body>
+</html>

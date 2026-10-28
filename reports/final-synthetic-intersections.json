@@ -1,0 +1,90 @@
+[
+  {
+    "advance_calls": 9999990,
+    "algorithm": "sequential",
+    "checksum": 10000000,
+    "comparisons": 19999980,
+    "long_size": 1000000,
+    "mean_us": 39717.3992,
+    "next_calls": 20000000,
+    "ratio": 1,
+    "short_size": 1000000
+  },
+  {
+    "advance_calls": 9999990,
+    "algorithm": "galloping_binary",
+    "checksum": 10000000,
+    "comparisons": 29999970,
+    "long_size": 1000000,
+    "mean_us": 40429.17510000001,
+    "next_calls": 20000000,
+    "ratio": 1,
+    "short_size": 1000000
+  },
+  {
+    "advance_calls": 999990,
+    "algorithm": "sequential",
+    "checksum": 1000000,
+    "comparisons": 10999890,
+    "long_size": 1000000,
+    "mean_us": 4585.498600000001,
+    "next_calls": 2000000,
+    "ratio": 10,
+    "short_size": 100000
+  },
+  {
+    "advance_calls": 999990,
+    "algorithm": "galloping_binary",
+    "checksum": 1000000,
+    "comparisons": 9999900,
+    "long_size": 1000000,
+    "mean_us": 4795.448399999999,
+    "next_calls": 2000000,
+    "ratio": 10,
+    "short_size": 100000
+  },
+  {
+    "advance_calls": 99990,
+    "algorithm": "sequential",
+    "checksum": 100000,
+    "comparisons": 10098990,
+    "long_size": 1000000,
+    "mean_us": 1136.5634,
+    "next_calls": 200000,
+    "ratio": 100,
+    "short_size": 10000
+  },
+  {
+    "advance_calls": 99990,
+    "algorithm": "galloping_binary",
+    "checksum": 100000,
+    "comparisons": 1499850,
+    "long_size": 1000000,
+    "mean_us": 536.6908000000001,
+    "next_calls": 200000,
+    "ratio": 100,
+    "short_size": 10000
+  },
+  {
+    "advance_calls": 9990,
+    "algorithm": "sequential",
+    "checksum": 10000,
+    "comparisons": 9999990,
+    "long_size": 1000000,
+    "mean_us": 651.3135000000001,
+    "next_calls": 20000,
+    "ratio": 1000,
+    "short_size": 1000
+  },
+  {
+    "advance_calls": 9990,
+    "algorithm": "galloping_binary",
+    "checksum": 10000,
+    "comparisons": 209790,
+    "long_size": 1000000,
+    "mean_us": 61.7106,
+    "next_calls": 20000,
+    "ratio": 1000,
+    "short_size": 1000
+  }
+]

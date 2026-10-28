@@ -1,0 +1,125 @@
+{
+  "advance": "sequential",
+  "advance_calls": 48600,
+  "cache": "warm; one unmeasured pass",
+  "checksum": 123473400,
+  "comparisons": 834500,
+  "measured_seconds": 0.013923957,
+  "next_calls": 25700,
+  "p50_us": 7.394,
+  "p95_us": 37.641,
+  "p99_us": 38.051,
+  "peak_rss_kb": 11264,
+  "per_query": [
+    {
+      "p50_us": 2.425,
+      "p95_us": 2.655,
+      "p99_us": 3.577,
+      "query": "neurofibromatosis",
+      "returned_per_run": 10,
+      "term_union_df": 437
+    },
+    {
+      "p50_us": 1.954,
+      "p95_us": 2.074,
+      "p99_us": 2.164,
+      "query": "the",
+      "returned_per_run": 10,
+      "term_union_df": 971315
+    },
+    {
+      "p50_us": 1.904,
+      "p95_us": 1.994,
+      "p99_us": 2.064,
+      "query": "machine",
+      "returned_per_run": 10,
+      "term_union_df": 46231
+    },
+    {
+      "p50_us": 7.614,
+      "p95_us": 8.025,
+      "p99_us": 9.097,
+      "query": "machine AND learning",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 14.457,
+      "p95_us": 15.229,
+      "p99_us": 17.222,
+      "query": "machine AND learning AND deep",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 5.991,
+      "p95_us": 6.261,
+      "p99_us": 6.472,
+      "query": "machine OR deep",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 10.99,
+      "p95_us": 11.371,
+      "p99_us": 11.813,
+      "query": "machine OR deep OR python",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 4.068,
+      "p95_us": 4.228,
+      "p99_us": 4.398,
+      "query": "machine ANDNOT python",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 13.045,
+      "p95_us": 13.475,
+      "p99_us": 14.798,
+      "query": "(machine OR deep) AND learning",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 9.698,
+      "p95_us": 10.109,
+      "p99_us": 10.62,
+      "query": "(machine AND learning) ANDNOT python",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 17.483,
+      "p95_us": 18.354,
+      "p99_us": 19.487,
+      "query": "((machine OR python) AND learning) ANDNOT deep",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 5.791,
+      "p95_us": 6.051,
+      "p99_us": 6.332,
+      "query": "the AND qzxwvvnonexistentterm",
+      "returned_per_run": 0
+    },
+    {
+      "p50_us": 1.904,
+      "p95_us": 1.953,
+      "p99_us": 2.395,
+      "query": "qzxwvvnonexistentterm",
+      "returned_per_run": 0,
+      "term_union_df": 0
+    },
+    {
+      "p50_us": 37.721,
+      "p95_us": 43.021,
+      "p99_us": 51.307,
+      "query": "title:machine AND body:learning",
+      "returned_per_run": 10
+    }
+  ],
+  "queries": 14,
+  "query_seconds": 0.01374044000000001,
+  "repeats": 100,
+  "results": 12000,
+  "samples": 1400,
+  "scope": "parse + plan + top-k internal ids; no metadata",
+  "throughput_qps": 100546.13067248053,
+  "top_k": 10
+}

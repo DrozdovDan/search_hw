@@ -1,0 +1,10 @@
+Internal ctest changing into directory: /raid/drozdovdan/search_hw/build-sanitize
+Test project /raid/drozdovdan/search_hw/build-sanitize
+    Start 1: search_tests
+1/2 Test #1: search_tests .....................   Passed   35.75 sec
+    Start 2: cli_restart
+2/2 Test #2: cli_restart ......................   Passed    0.59 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =  36.34 sec

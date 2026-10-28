@@ -1,0 +1,18 @@
+{
+  "analyzer": "icu-simple-lower-1",
+  "build_seconds": 29.268032178,
+  "corpus": "data/synthetic.jsonl",
+  "documents": 1000000,
+  "format": "boolean-search-1",
+  "index_bytes": 645950490,
+  "max_docs": 1000000,
+  "max_tracked_bytes": 402630328,
+  "memory_limit_mb": 512,
+  "merge_fan_in": 8,
+  "peak_rss_kb": 427624,
+  "postings": 106207066,
+  "segments": 3,
+  "snippet_bytes": 0,
+  "terms": 1010009,
+  "threads": 8
+}

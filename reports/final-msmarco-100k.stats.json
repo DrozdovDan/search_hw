@@ -1,0 +1,18 @@
+{
+  "analyzer": "icu-simple-lower-1",
+  "build_seconds": 22.972233723,
+  "corpus": "data/msmarco_v2_doc.tar",
+  "documents": 100000,
+  "format": "boolean-search-1",
+  "index_bytes": 264495863,
+  "max_docs": 100000,
+  "max_tracked_bytes": 402587074,
+  "memory_limit_mb": 512,
+  "merge_fan_in": 8,
+  "peak_rss_kb": 508708,
+  "postings": 40884344,
+  "segments": 2,
+  "snippet_bytes": 0,
+  "terms": 1180627,
+  "threads": 8
+}

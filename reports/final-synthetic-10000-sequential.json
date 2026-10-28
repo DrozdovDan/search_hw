@@ -1,0 +1,125 @@
+{
+  "advance": "sequential",
+  "advance_calls": 19800,
+  "cache": "warm; one unmeasured pass",
+  "checksum": 4604700,
+  "comparisons": 33000,
+  "measured_seconds": 0.009562718,
+  "next_calls": 24300,
+  "p50_us": 6.011,
+  "p95_us": 14.097,
+  "p99_us": 15.198,
+  "peak_rss_kb": 5120,
+  "per_query": [
+    {
+      "p50_us": 2.144,
+      "p95_us": 2.364,
+      "p99_us": 2.835,
+      "query": "rareterm",
+      "returned_per_run": 10,
+      "term_union_df": 11
+    },
+    {
+      "p50_us": 1.924,
+      "p95_us": 2.114,
+      "p99_us": 2.475,
+      "query": "common",
+      "returned_per_run": 10,
+      "term_union_df": 10000
+    },
+    {
+      "p50_us": 1.944,
+      "p95_us": 2.034,
+      "p99_us": 2.095,
+      "query": "machine",
+      "returned_per_run": 10,
+      "term_union_df": 5000
+    },
+    {
+      "p50_us": 6.102,
+      "p95_us": 6.722,
+      "p99_us": 8.125,
+      "query": "machine AND learning",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 11.772,
+      "p95_us": 12.664,
+      "p99_us": 17.092,
+      "query": "machine AND learning AND deep",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 5.731,
+      "p95_us": 6.241,
+      "p99_us": 6.893,
+      "query": "machine OR deep",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 10.26,
+      "p95_us": 11.101,
+      "p99_us": 11.442,
+      "query": "machine OR deep OR python",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 4.619,
+      "p95_us": 5.25,
+      "p99_us": 14.116,
+      "query": "machine ANDNOT python",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 10.209,
+      "p95_us": 11.021,
+      "p99_us": 11.431,
+      "query": "(machine OR deep) AND learning",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 8.977,
+      "p95_us": 9.809,
+      "p99_us": 16.932,
+      "query": "(machine AND learning) ANDNOT python",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 14.206,
+      "p95_us": 15.198,
+      "p99_us": 18.245,
+      "query": "((machine OR python) AND learning) ANDNOT deep",
+      "returned_per_run": 10
+    },
+    {
+      "p50_us": 4.809,
+      "p95_us": 5.16,
+      "p99_us": 6.402,
+      "query": "common AND absenttermxyz",
+      "returned_per_run": 0
+    },
+    {
+      "p50_us": 1.704,
+      "p95_us": 1.844,
+      "p99_us": 2.034,
+      "query": "absenttermxyz",
+      "returned_per_run": 0,
+      "term_union_df": 0
+    },
+    {
+      "p50_us": 6.483,
+      "p95_us": 7.233,
+      "p99_us": 15.98,
+      "query": "title:document AND body:machine",
+      "returned_per_run": 10
+    }
+  ],
+  "queries": 14,
+  "query_seconds": 0.009337043,
+  "repeats": 100,
+  "results": 12000,
+  "samples": 1400,
+  "scope": "parse + plan + top-k internal ids; no metadata",
+  "throughput_qps": 146401.89117780112,
+  "top_k": 10
+}

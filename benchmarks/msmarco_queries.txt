@@ -1,0 +1,15 @@
+# Префиксы и полный корпус: одинаковый набор, JSON отчёт содержит каждый запрос.
+neurofibromatosis
+the
+machine
+machine AND learning
+machine AND learning AND deep
+machine OR deep
+machine OR deep OR python
+machine ANDNOT python
+(machine OR deep) AND learning
+(machine AND learning) ANDNOT python
+((machine OR python) AND learning) ANDNOT deep
+the AND qzxwvvnonexistentterm
+qzxwvvnonexistentterm
+title:machine AND body:learning

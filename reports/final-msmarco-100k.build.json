@@ -1,0 +1,11 @@
+{
+  "documents": 100000,
+  "documents_per_second": 4353.081254779292,
+  "index_bytes": 264495863,
+  "max_tracked_bytes": 402587074,
+  "peak_rss_kb": 508708,
+  "postings": 40884344,
+  "seconds": 22.972233723,
+  "segments": 2,
+  "terms": 1180627
+}

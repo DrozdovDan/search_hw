@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /raid/drozdovdan/search_hw/build
+Test project /raid/drozdovdan/search_hw/build
+    Start 4: web_lifecycle
+1/1 Test #4: web_lifecycle ....................   Passed    1.45 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   1.46 sec
