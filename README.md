@@ -41,8 +41,8 @@ cmake --build build -j 8
 ctest --test-dir build --output-on-failure
 ```
 
-Сборка с ASan/UBSan и дополнительные проверки описаны в
-[руководстве разработчика](docs/DEVELOPMENT.md).
+Команды для проверки памяти и дополнительных тестов приведены в
+[руководстве по запуску](docs/USAGE.md#проверки).
 
 ## Быстрый запуск
 
@@ -174,5 +174,4 @@ SEARCH_INDEX=data/index-50k ./scripts/web_server.sh start
 - [Ключевые участки кода индекса](docs/INDEX_GUIDE.md).
 - [Архитектура, формат файлов и сложность](docs/ARCHITECTURE.md).
 - [Веб-интерфейс и доступ с другого компьютера](docs/WEB.md).
-- [Разработка, оформление и проверки](docs/DEVELOPMENT.md).
 - [Каталог отчётов](reports/README.md).

@@ -195,3 +195,47 @@ printf 'eea90100409a254fdb157b8e4e349deb  data/msmarco_v2_doc.tar\n' | md5sum -c
 Измеряемое время запроса включает разбор выражения, подготовку операций и получение внутренних
 номеров документов. Открытие индекса, чтение заголовков и адресов и печать результатов в этот
 показатель не входят. Методика и полученные числа приведены в [отчёте](../reports/RESULTS.md).
+
+## Проверки
+
+Запустить тесты после сборки:
+
+```bash
+ctest --test-dir build --output-on-failure
+```
+
+Они проверяют построение индекса, поиск, повторное открытие файлов и команды программы. Проверки
+веб-сервера добавляются при наличии `curl` и `jq`; для запуска и остановки процессов нужны также
+`ss` и `flock`.
+
+Для поиска ошибок памяти и недопустимых операций C++:
+
+```bash
+cmake -S . -B build-sanitize -DCMAKE_BUILD_TYPE=Debug -DSEARCH_SANITIZERS=ON
+cmake --build build-sanitize -j 4
+ctest --test-dir build-sanitize --output-on-failure
+```
+
+Проверить выбор фрагментов и подсветку слов:
+
+```bash
+node --test tests/text.test.cjs
+```
+
+Проверить интерфейс в браузере:
+
+```bash
+SEARCH_WEB_URL=http://127.0.0.1:8080 node tests/web_browser.cjs
+```
+
+Для последней команды нужны Playwright с Chromium, запущенный сервер и индексы `index-full` и
+`index-50k-snippets`. Дополнительный `SEARCH_FIXTURE_URL` включает проверку на отдельном тестовом
+корпусе. Для обычного запуска поисковика Node.js не нужен.
+
+Проверить или применить оформление C++:
+
+```bash
+sudo apt-get install clang-format-18
+./scripts/format_cpp.sh --check
+./scripts/format_cpp.sh --write
+```
